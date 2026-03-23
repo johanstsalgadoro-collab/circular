@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circular Informativa – Familias</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Nunito',sans-serif;
+  background:#e8e4f0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:28px;
+  padding:40px 16px;
+}
+.lbl{
+  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+  color:#7c6f8a;font-family:'Nunito',sans-serif;
+  margin-bottom:4px;align-self:flex-start;width:880px;
+}
+.slide{
+  width:880px;min-height:496px;
+  position:relative;overflow:hidden;
+  box-shadow:0 6px 28px rgba(60,20,80,0.15);
+}
+
+/* sticker shapes reutilizables */
+.blob{position:absolute;border-radius:60% 40% 55% 45%/50% 60% 40% 55%;}
+.star-shape{position:absolute;width:0;height:0;}
+.dot{position:absolute;border-radius:50%;}
+.pill{position:absolute;border-radius:40px;}
+.squiggle{position:absolute;}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 16px;border-radius:40px;
+  font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+}
+
+/* ── SLIDE 1 PORTADA ── */
+.s1{background:#3d1f6e;display:flex;flex-direction:column;justify-content:center;padding:56px 68px;}
+.s1 .blob-a{width:340px;height:280px;background:#5a2d9c;top:-80px;right:-60px;opacity:.5;}
+.s1 .blob-b{width:200px;height:200px;background:#f4b942;bottom:-60px;left:-40px;opacity:.3;border-radius:50%;}
+.s1 .dot-a{width:12px;height:12px;background:#f4b942;top:60px;right:180px;}
+.s1 .dot-b{width:8px;height:8px;background:#ff8fab;top:100px;right:200px;}
+.s1 .dot-c{width:16px;height:16px;background:#a0f0d0;bottom:90px;right:120px;opacity:.7;}
+/* sticker estrella */
+.s1 .sticker-star{
+  position:absolute;top:52px;right:80px;
+  width:70px;height:70px;
+}
+.s1 .sticker-heart{
+  position:absolute;bottom:80px;right:180px;
+  font-size:32px;line-height:1;opacity:.6;
+  color:#ff8fab;font-family:serif;
+}
+.s1 .tag-pill{
+  background:#f4b942;color:#3d1f6e;
+  margin-bottom:22px;width:fit-content;
+}
+.s1 h1{
+  font-family:'Fraunces',serif;font-weight:700;
+  font-size:44px;color:#fff;line-height:1.15;
+  margin-bottom:18px;max-width:500px;
+}
+.s1 .sub{
+  font-size:15px;color:rgba(255,255,255,.65);
+  line-height:1.7;max-width:440px;margin-bottom:32px;
+}
+.s1 .inst{
+  display:flex;align-items:center;gap:10px;
+  font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.5px;
+}
+.s1 .inst-bar{width:28px;height:2px;background:#f4b942;flex-shrink:0;}
+/* sticker squiggly line SVG */
+.s1 .squig{position:absolute;bottom:30px;right:60px;opacity:.25;}
+
+/* ── SLIDE 2 BIENVENIDA ── */
+.s2{background:#fff8f0;display:flex;align-items:stretch;}
+.s2 .left-panel{
+  width:40%;background:#ff6b6b;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  padding:40px 28px;gap:16px;position:relative;
+}
+.s2 .left-panel .blob-c{
+  width:180px;height:160px;background:rgba(255,255,255,.12);
+  top:-30px;left:-30px;
+}
+.s2 .left-panel .big-icon{
+  font-size:72px;line-height:1;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,.15));
+}
+.s2 .left-panel h2{
+  font-family:'Fraunces',serif;font-size:26px;
+  color:#fff;text-align:center;line-height:1.2;
+}
+.s2 .left-panel .star-deco{
+  position:absolute;bottom:24px;right:20px;
+  color:#ffe066;font-size:22px;opacity:.8;
+}
+.s2 .right-panel{flex:1;padding:44px 44px 44px 36px;display:flex;flex-direction:column;justify-content:center;}
+.s2 .eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#ff6b6b;font-weight:800;margin-bottom:14px;}
+.s2 h3{font-family:'Fraunces',serif;font-size:28px;color:#2d1a4a;margin-bottom:18px;line-height:1.2;}
+.s2 p{font-size:14px;line-height:1.8;color:#4a3a5a;margin-bottom:12px;}
+.s2 .quote-blob{
+  background:#fff0f6;border-left:4px solid #ff6b6b;
+  padding:12px 18px;border-radius:0 12px 12px 0;
+  font-size:14px;font-style:italic;color:#7a3a5a;
+  margin-top:8px;
+}
+
+/* ── SLIDE 3 IMPORTANCIA ── */
+.s3{background:#f0faf5;padding:48px 60px;display:flex;flex-direction:column;gap:0;}
+.s3 .top-deco{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.s3 .tag-green{background:#1d9e75;color:#fff;}
+.s3 h2{font-family:'Fraunces',serif;font-size:32px;color:#0f4a35;margin-bottom:28px;line-height:1.2;}
+.cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.card3{
+  background:#fff;border-radius:16px;padding:22px 18px;
+  border-top:4px solid #1d9e75;
+  display:flex;flex-direction:column;gap:8px;
+  position:relative;overflow:hidden;
+}
+.card3::after{
+  content:'';position:absolute;bottom:-20px;right:-20px;
+  width:60px;height:60px;border-radius:50%;
+  background:#e1f5ee;
+}
+.card3 .ic{font-size:28px;line-height:1;margin-bottom:4px;}
+.card3 .ct{font-size:13px;font-weight:800;color:#0f4a35;text-transform:uppercase;letter-spacing:.5px;}
+.card3 .cd{font-size:13px;color:#3a6a54;line-height:1.6;}
+/* sticker sol */
+.s3 .stk-sun{position:absolute;top:32px;right:48px;width:52px;height:52px;}
+
+/* ── SLIDE 4 ACTIVIDADES ── */
+.s4{background:#1a1a2e;padding:44px 60px;display:flex;flex-direction:column;}
+.s4 .eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f4b942;font-weight:800;margin-bottom:14px;}
+.s4 h2{font-family:'Fraunces',serif;font-size:32px;color:#fff;margin-bottom:28px;}
+.act-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.act-item{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;padding:16px 20px;
+  display:flex;align-items:flex-start;gap:14px;
+}
+.act-num{
+  width:32px;height:32px;border-radius:10px;
+  background:#f4b942;color:#1a1a2e;
+  font-size:14px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.act-txt .at{font-size:13px;font-weight:800;color:#fff;margin-bottom:3px;}
+.act-txt .ad{font-size:12px;color:rgba(255,255,255,.55);line-height:1.5;}
+/* deco blobs */
+.s4 .blob-d{width:220px;height:220px;background:#2d2d5e;top:-60px;right:-40px;opacity:.6;}
+.s4 .blob-e{width:140px;height:140px;background:#3d1f6e;bottom:-40px;left:-20px;opacity:.5;}
+.s4 .stk-rocket{position:absolute;top:44px;right:68px;font-size:40px;line-height:1;opacity:.5;}
+
+/* ── SLIDE 5 LLAMADO A LA ACCION ── */
+.s5{background:#fffbf0;display:flex;align-items:center;}
+.s5 .left5{
+  width:48%;background:#f4b942;
+  min-height:496px;
+  display:flex;flex-direction:column;
+  justify-content:center;padding:48px 40px;
+  position:relative;overflow:hidden;
+}
+.s5 .blob-f{width:260px;height:240px;background:rgba(255,255,255,.15);top:-60px;left:-60px;}
+.s5 .left5 .big-num{
+  font-family:'Fraunces',serif;font-size:110px;font-weight:700;
+  color:rgba(255,255,255,.2);line-height:1;
+  position:absolute;bottom:20px;right:20px;
+}
+.s5 .left5 h2{font-family:'Fraunces',serif;font-size:34px;color:#3d1f6e;line-height:1.2;margin-bottom:16px;position:relative;z-index:1;}
+.s5 .left5 p{font-size:14px;color:#5a3a0e;line-height:1.7;position:relative;z-index:1;}
+.s5 .right5{
+  flex:1;padding:48px 44px;
+  display:flex;flex-direction:column;justify-content:center;gap:16px;
+}
+.s5 .right5 .eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#c9954a;font-weight:800;}
+.s5 .right5 h3{font-family:'Fraunces',serif;font-size:26px;color:#2d1a4a;margin-bottom:4px;}
+.step-row{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px dashed #e0d0c0;}
+.step-row:last-child{border-bottom:none;}
+.step-dot{
+  width:36px;height:36px;border-radius:50%;
+  background:#3d1f6e;color:#f4b942;
+  font-size:14px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.step-txt .st{font-size:13px;font-weight:800;color:#2d1a4a;}
+.step-txt .sd{font-size:12px;color:#7a6a8a;line-height:1.5;}
+/* stickers */
+.s5 .stk-check{position:absolute;top:32px;right:32px;font-size:36px;opacity:.4;}
+.s5 .stk-arrow{position:absolute;bottom:40px;right:40px;}
+
+/* ── SLIDE 6 REFERENCIAS ── */
+.s6{background:#2d1a4a;padding:48px 64px;display:flex;flex-direction:column;}
+.s6 .blob-g{width:300px;height:260px;background:#3d1f6e;top:-60px;right:-60px;opacity:.5;}
+.s6 .blob-h{width:160px;height:160px;background:#f4b942;bottom:-50px;left:-30px;opacity:.12;border-radius:50%;}
+.s6 .eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f4b942;font-weight:800;margin-bottom:16px;}
+.s6 h2{font-family:'Fraunces',serif;font-size:30px;color:#fff;margin-bottom:28px;}
+.ref-card{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;padding:16px 20px;margin-bottom:12px;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.ref-card .rn{
+  width:28px;height:28px;border-radius:8px;
+  background:#f4b942;color:#2d1a4a;
+  font-size:12px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;
+}
+.ref-card .rt{font-size:12px;color:rgba(255,255,255,.75);line-height:1.7;}
+.ref-card .rt em{color:rgba(255,255,255,.5);}
+.s6 .url-row{
+  margin-top:6px;display:flex;align-items:center;gap:10px;
+  background:rgba(244,185,66,.1);border:1px solid rgba(244,185,66,.25);
+  border-radius:12px;padding:12px 20px;
+}
+.s6 .url-row .ul{font-size:12px;color:rgba(255,255,255,.5);}
+.s6 .url-row .uv{font-size:12px;color:#f4b942;font-weight:700;}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 -->
+<div class="lbl">Diapositiva 1 — Portada</div>
+<div class="slide s1">
+  <div class="blob blob-a"></div>
+  <div class="dot dot-a"></div>
+  <div class="dot dot-b"></div>
+  <div class="dot dot-c"></div>
+  <div class="blob dot dot-a" style="width:10px;height:10px;background:#a0f0d0;top:140px;right:240px;position:absolute;"></div>
+
+  <!-- Sticker estrella SVG -->
+  <svg class="sticker-star" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M35 5 L40 26 L62 26 L45 40 L52 62 L35 48 L18 62 L25 40 L8 26 L30 26 Z" fill="#f4b942" opacity="0.85"/>
+  </svg>
+  <!-- Sticker corazon -->
+  <div class="sticker-heart">&#9829;</div>
+  <!-- Sticker squiggle -->
+  <svg class="squig" width="100" height="30" viewBox="0 0 100 30">
+    <path d="M0 20 Q12 5 25 20 Q38 35 50 20 Q62 5 75 20 Q88 35 100 20" stroke="#f4b942" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </svg>
+
+  <div class="badge tag-pill">Circular informativa · 2024–2025</div>
+  <h1>Su participacion transforma la educacion de sus hijos</h1>
+  <p class="sub">Un mensaje para las familias de nuestra institucion, porque la escuela y el hogar construyen juntos el futuro de cada estudiante.</p>
+  <div class="inst">
+    <div class="inst-bar"></div>
+    Institucion Educativa &nbsp;·&nbsp; Direccion de Convivencia Escolar
+  </div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="lbl">Diapositiva 2 — Bienvenida</div>
+<div class="slide s2">
+  <div class="left-panel">
+    <div class="blob blob-c"></div>
+    <div class="big-icon">&#128149;</div>
+    <h2>Bienvenidas, familias</h2>
+    <div class="star-deco">&#11088;</div>
+  </div>
+  <div class="right-panel">
+    <div class="eyebrow">Mensaje de bienvenida</div>
+    <h3>Comenzamos un nuevo camino juntos</h3>
+    <p>Empieza un nuevo ano escolar y con el, una nueva oportunidad de acompanar a sus hijos en su crecimiento. La escuela es el lugar donde los estudiantes forman su caracter y sus valores, y ese proceso es mucho mas solido cuando la familia camina al lado.</p>
+    <div class="quote-blob">
+      Su presencia en la vida escolar marca una diferencia real. Cuando las familias participan, los estudiantes rinden mejor, se sienten mas seguros y confian mas en si mismos.
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="lbl">Diapositiva 3 — Por que es importante</div>
+<div class="slide s3">
+  <!-- Sticker sol -->
+  <svg class="stk-sun" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="26" cy="26" r="14" fill="#f4b942" opacity=".9"/>
+    <line x1="26" y1="4" x2="26" y2="12" stroke="#f4b942" stroke-width="3" stroke-linecap="round"/>
+    <line x1="26" y1="40" x2="26" y2="48" stroke="#f4b942" stroke-width="3" stroke-linecap="round"/>
+    <line x1="4" y1="26" x2="12" y2="26" stroke="#f4b942" stroke-width="3" stroke-linecap="round"/>
+    <line x1="40" y1="26" x2="48" y2="26" stroke="#f4b942" stroke-width="3" stroke-linecap="round"/>
+    <line x1="9" y1="9" x2="15" y2="15" stroke="#f4b942" stroke-width="3" stroke-linecap="round"/>
+    <line x1="37" y1="37" x2="43" y2="43" stroke="#f4b942" stroke-width="3" stroke-linecap="round"/>
+    <line x1="43" y1="9" x2="37" y2="15" stroke="#f4b942" stroke-width="3" stroke-linecap="round"/>
+    <line x1="15" y1="37" x2="9" y2="43" stroke="#f4b942" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+
+  <div class="top-deco">
+    <div class="badge tag-green">Por que participar</div>
+  </div>
+  <h2>La familia es el primer maestro de cada nino</h2>
+  <div class="cards3">
+    <div class="card3">
+      <div class="ic">&#128218;</div>
+      <div class="ct">Mejor rendimiento</div>
+      <div class="cd">Los estudiantes cuyos padres participan obtienen mejores resultados academicos.</div>
+    </div>
+    <div class="card3">
+      <div class="ic">&#129309;</div>
+      <div class="ct">Mayor confianza</div>
+      <div class="cd">El acompanamiento familiar fortalece la autoestima y la seguridad de los hijos.</div>
+    </div>
+    <div class="card3">
+      <div class="ic">&#127891;</div>
+      <div class="ct">Comunidad fuerte</div>
+      <div class="cd">Una escuela con familias activas construye vinculos solidos y un ambiente positivo.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="lbl">Diapositiva 4 — Actividades del ano escolar</div>
+<div class="slide s4">
+  <div class="blob blob-d"></div>
+  <div class="blob blob-e"></div>
+  <div class="stk-rocket">&#128640;</div>
+
+  <div class="eyebrow">Espacios de participacion</div>
+  <h2>Actividades en las que pueden unirse este ano</h2>
+  <div class="act-list">
+    <div class="act-item">
+      <div class="act-num">1</div>
+      <div class="act-txt">
+        <div class="at">Reuniones por periodo</div>
+        <div class="ad">Cuatro encuentros al ano para conocer el avance academico y convivencial de su hijo.</div>
+      </div>
+    </div>
+    <div class="act-item">
+      <div class="act-num">2</div>
+      <div class="act-txt">
+        <div class="at">Talleres para familias</div>
+        <div class="ad">Sesiones sobre crianza, acompanamiento en tareas y comunicacion en el hogar.</div>
+      </div>
+    </div>
+    <div class="act-item">
+      <div class="act-num">3</div>
+      <div class="act-txt">
+        <div class="at">Jornadas de integracion</div>
+        <div class="ad">Actividades culturales y deportivas en las que las familias participan con los estudiantes.</div>
+      </div>
+    </div>
+    <div class="act-item">
+      <div class="act-num">4</div>
+      <div class="act-txt">
+        <div class="at">Consejo de padres</div>
+        <div class="ad">Espacio de representacion y voz de las familias en las decisiones institucionales.</div>
+      </div>
+    </div>
+    <div class="act-item">
+      <div class="act-num">5</div>
+      <div class="act-txt">
+        <div class="at">Semana de la familia</div>
+        <div class="ad">Una semana dedicada a fortalecer los lazos entre la escuela y las familias.</div>
+      </div>
+    </div>
+    <div class="act-item">
+      <div class="act-num">6</div>
+      <div class="act-txt">
+        <div class="at">Atencion con docentes</div>
+        <div class="ad">Horarios disponibles para hablar directamente con el director de grupo de su hijo.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="lbl">Diapositiva 5 — Llamado a la accion</div>
+<div class="slide s5">
+  <div class="left5">
+    <div class="blob blob-f"></div>
+    <div class="big-num">!</div>
+    <h2>Su familia puede hacer la diferencia</h2>
+    <p>Cada vez que una familia entra a la escuela, no solo acompana a un estudiante: fortalece toda una comunidad. Este ano, los invitamos a dar ese paso juntos.</p>
+  </div>
+  <div class="right5">
+    <div class="eyebrow">Como participar</div>
+    <h3>Tres pasos sencillos</h3>
+    <div class="step-row">
+      <div class="step-dot">1</div>
+      <div class="step-txt">
+        <div class="st">Informe a su hijo</div>
+        <div class="sd">Hagale saber que usted estara presente y que valora su educacion.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-dot">2</div>
+      <div class="step-txt">
+        <div class="st">Asista a los encuentros</div>
+        <div class="sd">Aparte las fechas de reuniones y actividades en su calendario.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-dot">3</div>
+      <div class="step-txt">
+        <div class="st">Comunicase con la escuela</div>
+        <div class="sd">Ante cualquier duda, los docentes y la direccion estan disponibles para usted.</div>
+      </div>
+    </div>
+    <!-- sticker flecha decorativa -->
+    <svg class="stk-arrow" width="48" height="48" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="22" stroke="#f4b942" stroke-width="2" stroke-dasharray="5 4"/>
+      <path d="M18 24 L28 24 M24 18 L30 24 L24 30" stroke="#f4b942" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="lbl">Diapositiva 6 — Referencias</div>
+<div class="slide s6">
+  <div class="blob blob-g"></div>
+  <div class="blob blob-h"></div>
+
+  <div class="eyebrow">Fuentes consultadas</div>
+  <h2>Referencias</h2>
+
+  <div class="ref-card">
+    <div class="rn">1</div>
+    <div class="rt">Epstein, J. L. (2011). <em>School, family, and community partnerships: Preparing educators and improving schools</em> (2.a ed.). Westview Press.</div>
+  </div>
+  <div class="ref-card">
+    <div class="rn">2</div>
+    <div class="rt">Henderson, A. T., y Mapp, K. L. (2002). <em>A new wave of evidence: The impact of school, family, and community connections on student achievement</em>. National Center for Family and Community Connections with Schools.</div>
+  </div>
+  <div class="ref-card">
+    <div class="rn">3</div>
+    <div class="rt">Ministerio de Educacion Nacional de Colombia. (2007). <em>Cartilla para padres de familia: Como participar en los procesos educativos de la escuela</em>. MEN. https://www.mineducacion.gov.co</div>
+  </div>
+</div>
+
+</body>
+</html>
