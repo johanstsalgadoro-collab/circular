@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circular Informativa – Familias</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1a2b3c;
+    --sky: #3d7ebf;
+    --gold: #c9954a;
+    --cream: #f5f0e8;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --light: #eaf2f8;
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #d0d8e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 40px 20px;
+  }
+
+  .slide-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7a8694;
+    font-family: 'Source Sans 3', sans-serif;
+    margin-bottom: 6px;
+    align-self: flex-start;
+    width: 860px;
+  }
+
+  .slide {
+    width: 860px;
+    min-height: 483px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  }
+
+  /* ─── DIAPOSITIVA 1 – PORTADA ─── */
+  .s1 {
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 72px;
+  }
+  .s1::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(61,126,191,0.18);
+  }
+  .s1::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(201,149,74,0.12);
+  }
+  .s1 .tag {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .s1 h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    max-width: 520px;
+  }
+  .s1 .subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 460px;
+    margin-bottom: 36px;
+  }
+  .s1 .school-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .s1 .bar {
+    width: 32px;
+    height: 2px;
+    background: var(--gold);
+  }
+  .s1 .school {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+  .s1 .deco-line {
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .s1 .deco-line span {
+    display: block;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ─── DIAPOSITIVA 2 – BIENVENIDA ─── */
+  .s2 {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 5px 1fr;
+  }
+  .s2 .accent-bar {
+    background: var(--sky);
+    width: 5px;
+  }
+  .s2 .content {
+    padding: 52px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .s2 .eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sky);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .s2 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: var(--navy);
+    margin-bottom: 22px;
+    line-height: 1.2;
+  }
+  .s2 p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2d3748;
+    max-width: 620px;
+    margin-bottom: 14px;
+  }
+  .s2 .firma {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .s2 .firma .linea { width: 28px; height: 1.5px; background: var(--gold); }
+  .s2 .firma .nombre { font-size: 12px; color: var(--gray); letter-spacing: 0.5px; }
+
+  /* ─── DIAPOSITIVA 3 – ACTIVIDADES ─── */
+  .s3 {
+    background: var(--white);
+    padding: 50px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .s3 .eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .s3 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: var(--navy);
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+  .activity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .activity-card {
+    background: var(--light);
+    border-left: 3px solid var(--sky);
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .activity-card .act-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .activity-card .act-desc {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  /* ─── DIAPOSITIVA 4 – CIERRE ─── */
+  .s4 {
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .s4::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .s4::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,149,74,0.15);
+  }
+  .s4 .ornament {
+    width: 40px; height: 2px;
+    background: var(--gold);
+    margin: 0 auto 24px;
+  }
+  .s4 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: var(--white);
+    margin-bottom: 20px;
+    line-height: 1.2;
+    max-width: 560px;
+  }
+  .s4 p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    max-width: 500px;
+    margin-bottom: 32px;
+  }
+  .s4 .contact-box {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 14px 32px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.3px;
+  }
+  .s4 .contact-box span {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .ref-section {
+    width: 860px;
+    background: #fff;
+    padding: 28px 36px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .ref-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .ref-section p {
+    font-size: 12px;
+    line-height: 1.8;
+    color: #4a5568;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .ref-section .note {
+    margin-top: 14px;
+    font-size: 11px;
+    color: #9ca3af;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-label">Diapositiva 1 — Portada</div>
+<div class="slide s1">
+  <div class="deco-line">
+    <span style="width:80px"></span>
+    <span style="width:50px"></span>
+    <span style="width:65px"></span>
+    <span style="width:40px"></span>
+    <span style="width:70px"></span>
+  </div>
+  <div class="tag">Circular Informativa · Año Escolar 2024–2025</div>
+  <h1>Su participación transforma la educación de sus hijos</h1>
+  <p class="subtitle">Un mensaje para las familias de nuestra institución, porque la escuela y el hogar construyen juntos el futuro de cada estudiante.</p>
+  <div class="school-line">
+    <div class="bar"></div>
+    <div class="school">Institución Educativa &nbsp;·&nbsp; Dirección de Convivencia Escolar</div>
+  </div>
+</div>
+
+<div class="slide-label">Diapositiva 2 — Mensaje de bienvenida</div>
+<div class="slide s2">
+  <div class="accent-bar"></div>
+  <div class="content">
+    <div class="eyebrow">Mensaje de bienvenida</div>
+    <h2>Estimadas familias, les damos la bienvenida</h2>
+    <p>Comenzamos un nuevo año escolar y, con él, una nueva oportunidad de construir juntos el camino educativo de sus hijos. La escuela no es solo el lugar donde los niños y jóvenes aprenden contenidos; es el espacio donde forman su carácter, sus valores y su visión del mundo. Y ese proceso es mucho más sólido cuando la familia camina al lado.</p>
+    <p>Su presencia en la vida escolar marca una diferencia real. Cuando las familias participan, los estudiantes rinden mejor, se sienten más seguros y desarrollan mayor confianza en sí mismos. Por eso los invitamos a ser parte activa de este año escolar, a asistir a nuestros encuentros y a acompañar a sus hijos en cada etapa.</p>
+    <div class="firma">
+      <div class="linea"></div>
+      <div class="nombre">Equipo Directivo · Institución Educativa</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-label">Diapositiva 3 — Actividades del año escolar</div>
+<div class="slide s3">
+  <div class="eyebrow">Espacios de participación familiar</div>
+  <h2>Actividades en las que pueden participar este año</h2>
+  <div class="activity-grid">
+    <div class="activity-card">
+      <div class="act-title">Reuniones de padres por periodo</div>
+      <div class="act-desc">Cuatro encuentros al año para conocer el avance académico y convivencial de su hijo.</div>
+    </div>
+    <div class="activity-card">
+      <div class="act-title">Talleres para familias</div>
+      <div class="act-desc">Sesiones prácticas sobre pautas de crianza, acompañamiento en tareas y comunicación en el hogar.</div>
+    </div>
+    <div class="activity-card">
+      <div class="act-title">Jornadas de integración escolar</div>
+      <div class="act-desc">Actividades culturales y deportivas en las que las familias participan junto a los estudiantes.</div>
+    </div>
+    <div class="activity-card">
+      <div class="act-title">Consejo de padres de familia</div>
+      <div class="act-desc">Espacio de representación y voz para las familias en las decisiones institucionales.</div>
+    </div>
+    <div class="activity-card">
+      <div class="act-title">Semana de la familia</div>
+      <div class="act-desc">Una semana dedicada a fortalecer los lazos entre la escuela, los estudiantes y sus familias.</div>
+    </div>
+    <div class="activity-card">
+      <div class="act-title">Atención personalizada con docentes</div>
+      <div class="act-desc">Horarios de atención disponibles para hablar directamente con el director de grupo de su hijo.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-label">Diapositiva 4 — Cierre y contacto</div>
+<div class="slide s4">
+  <div class="ornament"></div>
+  <h2>Los esperamos con las puertas abiertas</h2>
+  <p>Cada vez que una familia entra a la escuela, no solo acompaña a un estudiante: fortalece toda una comunidad. Este año, los invitamos a dar ese paso. Juntos hacemos que la educación sea más humana, más cercana y más efectiva.</p>
+  <div class="contact-box">
+    Para inscribirse a actividades o solicitar información: <span>contacto@institucion.edu.co</span>
+  </div>
+</div>
+
+<div class="ref-section">
+  <h3>Referencias (normas APA 7.a edición)</h3>
+  <p>
+    Epstein, J. L. (2011). <em>School, family, and community partnerships: Preparing educators and improving schools</em> (2.a ed.). Westview Press.<br><br>
+    Henderson, A. T., y Mapp, K. L. (2002). <em>A new wave of evidence: The impact of school, family, and community connections on student achievement</em>. National Center for Family and Community Connections with Schools.<br><br>
+    Ministerio de Educación Nacional de Colombia. (2007). <em>Cartilla para padres de familia: ¿Cómo participar en los procesos educativos de la escuela?</em>. MEN. https://www.mineducacion.gov.co<br><br>
+    Organización de Estados Iberoamericanos. (2014). <em>Participación de las familias en la educación infantil latinoamericana</em>. OEI.
+  </p>
+  <p class="note">Reemplaza el enlace de Canva aquí: [URL de tu presentación en Canva] — y añade una captura de pantalla de la presentación en esta misma página.</p>
+</div>
+
+</body>
+</html>
